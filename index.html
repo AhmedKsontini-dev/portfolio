@@ -26,6 +26,18 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 
+    <style>
+        /* Dropdown submenu */
+        .dropdown-submenu {
+            position: relative;
+        }
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+    </style>
+
 </head>
 <body class="home1-page">
 
@@ -201,9 +213,21 @@
                 <a href="https://www.instagram.com/ahmed_ksontini_/" target="_blank"><i class="lab la-instagram"></i></a>
             </li>
         </ul>
-        <a href="#" class="theme-btn">
-            <i class="las la-envelope"></i> Hire Me!
-        </a>
+        <div class="dropdown">
+            <button class="theme-btn dropdown-toggle" type="button" id="downloadCvDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="las la-download"></i> Download CV
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="downloadCvDropdown">
+                <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="#">CV</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="assets/cv/cv-ahmed-ang.pdf" target="_blank" download>ANG</a></li>
+                        <li><a class="dropdown-item" href="assets/cv/cv-ahmed-fr.pdf" target="_blank" download>FR</a></li>
+                    </ul>
+                </li>
+                <li><a class="dropdown-item" href="assets/cv/cv-ats.pdf" target="_blank" download>CV ATS</a></li>
+            </ul>
+        </div>
     </div>
 
     <main class="drake-main">
@@ -230,9 +254,21 @@
                             <a href="https://www.instagram.com/ahmed_ksontini_/" target="_blank"><i class="lab la-instagram"></i></a>
                         </li>
                     </ul>
-                    <a href="#" class="theme-btn">
-                        <i class="las la-envelope"></i> Hire Me!
-                    </a>
+                    <div class="dropdown">
+                        <button class="theme-btn dropdown-toggle" type="button" id="downloadCvDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="las la-download"></i> Download CV
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="downloadCvDropdown">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">CV</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="assets/cv/cv-ahmed-ang.pdf" target="_blank" download>ANG</a></li>
+                                    <li><a class="dropdown-item" href="assets/cv/cv-ahmed-fr.pdf" target="_blank" download>FR</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="assets/cv/cv-ats.pdf" target="_blank" download>CV ATS</a></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <section class="hero-section page-section scroll-to-page" id="home">
@@ -710,6 +746,27 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/ajax-form.js"></script>
     <script src="assets/js/color.js"></script>
+    <script>
+    // Dropdown submenu Bootstrap 5
+        document.querySelectorAll('.dropdown-submenu .dropdown-toggle').forEach(function(element){
+            element.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                let submenu = this.nextElementSibling;
+                if(submenu) {
+                    submenu.classList.toggle('show');
+                }
+            });
+        });
+        // Fermer les sous-menus quand on ferme le menu principal
+        document.querySelectorAll('.dropdown').forEach(function(drop){
+            drop.addEventListener('hide.bs.dropdown', function () {
+                this.querySelectorAll('.dropdown-menu.show').forEach(function(sub){
+                    sub.classList.remove('show');
+                });
+            });
+        });
+    </script>
 </body>
 
 <!-- Mirrored from wpriverthemes.com/HTML/drake/home1.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jun 2025 14:47:11 GMT -->
